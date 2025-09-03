@@ -2,6 +2,13 @@ import streamlit as st
 import pickle
 import pandas as pd
 import requests
+import gdown
+import os
+
+# 🔹 Download similarity.pkl from Google Drive if not present
+if not os.path.exists("similarity.pkl"):
+    url = "https://drive.google.com/file/d/1ViM401-M9UWJ29cte5zmTCQPrqJ3B9zv/view?usp=sharing"
+    gdown.download(url, "similarity.pkl", quiet=False)
 
 # Load the saved data
 movies_dict = pickle.load(open('movie_dict.pkl', 'rb'))
